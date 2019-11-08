@@ -24,12 +24,25 @@ body{
 	border-radius: 50px;
 
 }
+.contenedor-cookies{
+	display:flex;
+	width: 100%;
+	justify-content: center;
+	flex-wrap: wrap; 
+}
+.contenedor-cookies p{
+	width: 100%;
+	text-align: center;
+	background-color: var(--orange);
+	opacity: 0.8;
+}
 .form50{
 	height: 50vh;
 	opacity: 0.9;
 }
 .font-white{
 	color:var(--white);
+	
 }
 .bg{
 	background-image: url(../img/muebles-baratos-los-angeles.jpg); 

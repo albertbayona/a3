@@ -16,6 +16,9 @@ if (isset($_POST) && !empty($_POST["user"]) && !empty($_POST["pass"])){
  	if ($sql->rowCount() ==1 && password_verify($pass,$resultado["pass"])){
  		session_start();
 		$_SESSION["user"] = $user;
+		if (isset($_COOKIE["Cookies_aceptadas"]) && $_COOKIE["Cookies_aceptadas"]==true){
+			setcookie("user", $user, time()+3600*24*12,"/",localhost,0); 
+		}
  		if($resultado["admin"]==1){
  			$_SESSION["admin"] = 1;
  			header("location:./app/mainAdmin.php");
@@ -46,7 +49,11 @@ if (isset($_POST) && !empty($_POST["user"]) && !empty($_POST["pass"])){
 	<div class="contenedor-flex form50">
 
 		<form class="" method="POST" action="<?php htmlentities($_SERVER['PHP_SELF']);?>">
-			<input type="text" name="user" placeholder="User">
+			<input type="text" name="user" placeholder="User" <?php 
+			if (isset($_COOKIE["user"]) ){
+				echo 'value="'.$_COOKIE["user"].'"';
+			}
+			?>>
 			<input type="password" name="pass" placeholder="Pass">
 			<input type="submit" name="submit" value="Log in" class="submit">
 			<?php 
@@ -62,6 +69,17 @@ if (isset($_POST) && !empty($_POST["user"]) && !empty($_POST["pass"])){
 			<input type="button" name="" value ="Registre">
 		</a>
 	</div > 
+	<?php if (!isset($_COOKIE["Cookies_aceptadas"]) && $_COOKIE["Cookies_aceptadas"]!=true) {
+		# code...
+	 ?>
+	<div class="contenedor-cookies ">
 
+		<a href="./app/cookies.php">
+			<input type="button" name="" value ="ACEPTAR COOKIES">
+		</a>
+		<p class="font-white ">Aceptar las cookies permitirá que se guarde el usuario con el que entraste la ultima vez</p>
+	</div > 
+	<?php 
+	}?>
 </body>
 </html>
