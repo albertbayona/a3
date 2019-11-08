@@ -1,0 +1,46 @@
+body{
+	background-color: whitesmoke;
+}
+.contenedor-flex{
+	display:flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.contenedor-flex h1{
+	width:100%;
+	text-align: center;
+} 
+
+.contenedor-flex form{
+
+	height: 90%;
+	width:25%;
+	
+	display:flex;
+	justify-content: center;
+	align-content:  center;
+	flex-wrap: wrap;
+	background-color: var(--yellow);
+	border-radius: 50px;
+
+}
+.form50{
+	height: 50vh;
+	opacity: 0.9;
+}
+.font-white{
+	color:var(--white);
+}
+.bg{
+	background-image: url(../img/muebles-baratos-los-angeles.jpg); 
+	/* Full height */
+	height: 100%;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.submit{
+	width:50%;
+}

@@ -1,0 +1,2 @@
+esto no debe aparecer en la pagina
+aqui irian todas las funcionalidades de bbdd por ejemplo
